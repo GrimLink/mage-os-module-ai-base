@@ -340,6 +340,9 @@ class ClientFactory implements AiClientFactoryInterface
         if ($catalog !== null && isset($accepted['modelCatalog'])) {
             $arguments['modelCatalog'] = $catalog;
         }
+        if (isset($accepted['httpClient'])) {
+            $arguments['httpClient'] = new DeadlineHttpClient();
+        }
         return $arguments;
     }
 
